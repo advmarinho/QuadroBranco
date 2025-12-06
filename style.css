@@ -1,0 +1,336 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Fonte global mais limpa */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background-color: #f3f4f6;
+    color: #111827;
+}
+
+/* Container geral */
+.board-wrapper {
+    max-width: 1280px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+.board {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 18px 20px 30px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+}
+
+/* Cabeçalho principal */
+.board-header h1 {
+    margin: 0;
+    font-size: 1.5rem;          /* título mais presente */
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.board-subtitle {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+/* Formulário de criação */
+.task-form {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+    font-size: 0.8rem;
+    color: #374151;
+}
+
+.field--wide {
+    flex: 1;
+}
+
+.field label {
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.field input,
+.field select {
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 0.85rem;
+    font-family: inherit;
+}
+
+.field input:focus,
+.field select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 1px #2563eb33;
+}
+
+/* Botões */
+.primary-button,
+.secondary-button {
+    border-radius: 999px;
+    padding: 7px 14px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: inherit;
+}
+
+.primary-button {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.primary-button:hover {
+    background-color: #1d4ed8;
+}
+
+.secondary-button {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.secondary-button:hover {
+    background-color: #d1d5db;
+}
+
+/* Filtros */
+.board-filters {
+    margin-top: 14px;
+    border-top: 1px dashed #e5e7eb;
+    padding-top: 10px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Quadro de colunas */
+.board-columns {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 20px;
+}
+
+/* Coluna */
+.board-column {
+    background-color: #f9fafb;
+    border-radius: 10px;
+    border: 1px dashed #d1d5db;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabeçalho da coluna */
+.column-header h2 {
+    margin: 0;
+    font-size: 1rem;           /* maior que antes */
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: #111827;
+}
+
+.editable-title {
+    cursor: text;
+    padding: 3px;
+}
+
+.column-subtitle {
+    margin: 2px 0 0;
+    font-size: 0.8rem;
+    color: #6b7280;
+    line-height: 1.35;
+}
+
+.editable-subtitle {
+    cursor: text;
+    padding: 2px;
+}
+
+/* Área de cards */
+.column-body {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+/* Card */
+.task-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    padding: 8px 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.35;
+}
+
+/* Cabeçalho do card */
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.task-header > div:first-child {
+    font-size: 0.9rem;       /* título do card */
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Botões do card */
+.task-edit-btn {
+    background: none;
+    border: none;
+    color: #2563eb;
+    cursor: pointer;
+    font-size: 0.78rem;
+    padding: 0 4px 0 0;
+}
+
+.task-edit-btn:hover {
+    text-decoration: underline;
+}
+
+.task-delete-btn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 0.9rem;
+    line-height: 1;
+    padding: 0;
+}
+
+/* Texto de meta (prazo / resp / categoria) */
+.task-card > div:nth-child(2),
+.task-meta {
+    font-size: 0.8rem;
+    color: #4b5563;
+}
+
+/* Status pill */
+.status-pill {
+    border: none;
+    border-radius: 999px;
+    padding: 2px 10px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: inherit;
+}
+
+.status-nao-iniciado {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.status-andamento {
+    background: #f97316;
+    color: #ffffff;
+}
+
+.status-concluido {
+    background: #22c55e;
+    color: #064e3b;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 24, 39, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.modal-content h3 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Rodapés */
+.board-footer {
+    margin-top: 16px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 8px;
+    font-size: 0.78rem;
+    color: #6b7280;
+}
+
+.igarape-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #555;
+    opacity: 0.7;
+    border-top: 1px dashed #ddd;
+    padding-top: 10px;
+}
+
+/* Responsivo básico */
+@media (max-width: 1100px) {
+    .board-columns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 720px) {
+    .board-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .task-form,
+    .filters {
+        flex-direction: column;
+    }
+}

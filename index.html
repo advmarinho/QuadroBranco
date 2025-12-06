@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão à Vista – RH / Payroll – Igarapé Digital</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="board-wrapper">
+    <div class="board">
+
+        <header class="board-header">
+            <h1>Gestão à Vista – RH / Payroll</h1>
+            <p class="board-subtitle">
+                Quadro branco digital para entregas críticas de RH, DP, Folha, Benefícios e Projetos.
+            </p>
+        </header>
+
+        <!-- Formulário -->
+        <section class="board-controls">
+            <form id="task-form" class="task-form">
+
+                <div class="field field--wide">
+                    <label>Atividade</label>
+                    <input id="titulo" type="text" placeholder="Ex.: Fazer 13º salário" required>
+                </div>
+
+                <div class="field">
+                    <label>Prazo</label>
+                    <input id="deadline" type="date">
+                </div>
+
+                <div class="field">
+                    <label>Responsável</label>
+                    <input id="responsavel" type="text" value="Anderson">
+                </div>
+
+                <div class="field">
+                    <label>Categoria</label>
+                    <select id="categoria">
+                        <option value="Folha">Folha</option>
+                        <option value="Encargos">Encargos</option>
+                        <option value="Benefícios">Benefícios</option>
+                        <option value="Projeto">Projeto</option>
+                        <option value="Jurídico">Jurídico</option>
+                        <option value="Outro" selected>Outro</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Quadro / Bloco</label>
+                    <select id="coluna">
+                        <option value="col-1">Até 12/12</option>
+                        <option value="col-2">13 a 15/12</option>
+                        <option value="col-3">16 a 19/12</option>
+                        <option value="col-4">Até 20/12 / Pendências</option>
+                    </select>
+                </div>
+
+                <div class="field field--button">
+                    <button type="submit" class="primary-button">Adicionar</button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- Filtros -->
+        <section class="board-filters">
+            <div class="filters">
+
+                <div class="field">
+                    <label>Status</label>
+                    <select id="filter-status">
+                        <option value="">Todos</option>
+                        <option value="nao-iniciado">Não iniciado</option>
+                        <option value="andamento">Em andamento</option>
+                        <option value="concluido">Concluído</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Categoria</label>
+                    <select id="filter-categoria">
+                        <option value="">Todas</option>
+                        <option value="Folha">Folha</option>
+                        <option value="Encargos">Encargos</option>
+                        <option value="Benefícios">Benefícios</option>
+                        <option value="Projeto">Projeto</option>
+                        <option value="Jurídico">Jurídico</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="field field--button">
+                    <button id="clear-board" type="button" class="secondary-button">
+                        Limpar quadro
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- QUADRO BRANCO -->
+        <section class="board-columns">
+
+            <article class="board-column" data-coluna-id="col-1">
+                <header class="column-header">
+                    <h2 class="editable-title" contenteditable="true">Até 12/12</h2>
+                    <p class="column-subtitle editable-subtitle" contenteditable="true">
+                        Atividades urgentes de folha, 13º e pagamentos.
+                    </p>
+                </header>
+                <div class="column-body"></div>
+            </article>
+
+            <article class="board-column" data-coluna-id="col-2">
+                <header class="column-header">
+                    <h2 class="editable-title" contenteditable="true">13 a 15/12</h2>
+                    <p class="column-subtitle editable-subtitle" contenteditable="true">
+                        Lançamentos, fechamentos e ajustes.
+                    </p>
+                </header>
+                <div class="column-body"></div>
+            </article>
+
+            <article class="board-column" data-coluna-id="col-3">
+                <header class="column-header">
+                    <h2 class="editable-title" contenteditable="true">16 a 19/12</h2>
+                    <p class="column-subtitle editable-subtitle" contenteditable="true">
+                        Projetos, CCT e harmonizações.
+                    </p>
+                </header>
+                <div class="column-body"></div>
+            </article>
+
+            <article class="board-column" data-coluna-id="col-4">
+                <header class="column-header">
+                    <h2 class="editable-title" contenteditable="true">Até 20/12 / Pendências</h2>
+                    <p class="column-subtitle editable-subtitle" contenteditable="true">
+                        Encargos e pendências gerais.
+                    </p>
+                </header>
+                <div class="column-body"></div>
+            </article>
+
+        </section>
+
+        <footer class="board-footer">
+            <p>As tarefas são salvas automaticamente no navegador. Arraste e solte entre os blocos.</p>
+        </footer>
+
+        <footer class="igarape-footer">
+            Igarapé Digital – RH, Automação e Inovação Operacional
+        </footer>
+
+    </div>
+</div>
+
+
+<!-- MODAL DE EDIÇÃO -->
+<div id="modal-edicao" class="modal hidden">
+    <div class="modal-content">
+        <h3>Editar atividade</h3>
+
+        <label>Título</label>
+        <input id="edit-titulo" type="text">
+
+        <label>Prazo</label>
+        <input id="edit-deadline" type="date">
+
+        <label>Responsável</label>
+        <input id="edit-responsavel" type="text">
+
+        <label>Categoria</label>
+        <select id="edit-categoria">
+            <option value="Folha">Folha</option>
+            <option value="Encargos">Encargos</option>
+            <option value="Benefícios">Benefícios</option>
+            <option value="Projeto">Projeto</option>
+            <option value="Jurídico">Jurídico</option>
+            <option value="Outro">Outro</option>
+        </select>
+
+        <label>Quadro / Bloco</label>
+        <select id="edit-coluna">
+            <option value="col-1">Até 12/12</option>
+            <option value="col-2">13 a 15/12</option>
+            <option value="col-3">16 a 19/12</option>
+            <option value="col-4">Até 20/12 / Pendências</option>
+        </select>
+
+        <div class="modal-buttons">
+            <button id="btn-save-edit" class="primary-button">Salvar</button>
+            <button id="btn-cancel-edit" class="secondary-button">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
